@@ -1,0 +1,32 @@
+[project]
+name = "flagger"
+version = "0.0.1"
+authors = []
+description = "valgrind's internal flag sniffing daemon."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+license = {file = "LICENSE"}
+dependencies = [
+  "schedule",
+  "requests",
+  "tqdm",
+  "ollama",
+  "RapidFuzz",
+  "beautifulsoup4",
+  "duckduckgo_search"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+flagger = "flagger.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["flagger", "flagger.*"]
+exclude = ["tests", "tests.*", "local", "local.*", "env", "env.*"]
